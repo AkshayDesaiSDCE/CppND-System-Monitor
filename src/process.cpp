@@ -32,7 +32,7 @@ float Process::getCPUUtil() {
 // TODO: Return the command that generated this process
 string Process::Command() { return getCommand(); }
 
-string Process::getCommand(){return command; }
+string Process::getCommand(){return LinuxParser::Command(pid); }
 
 // TODO: Return this process's memory utilization
 string Process::Ram() { return getRam(); }
@@ -43,7 +43,7 @@ string Process::getRam(){ ram = LinuxParser::Ram(pid); return ram;}
 // TODO: Return the user (name) that generated this process
 string Process::User() { return getUser(); }
 
-string Process::getUser(){ return user;}
+string Process::getUser(){ return LinuxParser::User(pid);}
 
 // TODO: Return the age of this process (in seconds)
 long int Process::UpTime() { return getUpTime(); }
